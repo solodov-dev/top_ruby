@@ -1,2 +1,2 @@
-# TOP_ruby
+# top_ruby
 The Odin Project Ruby Course
