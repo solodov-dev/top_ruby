@@ -7,13 +7,10 @@ def merge(left, right)
 end
 
 def merge_sort(arr)
-  if arr.length === 1
-    arr
-  else
-    left = merge_sort(arr.shift(arr.length / 2))
-    right = merge_sort(arr);
-    merge(left, right);
-  end
+  return arr if arr.length === 1
+  left = merge_sort(arr.shift(arr.length / 2))
+  right = merge_sort(arr);
+  merge(left, right);
 end
 
 p merge_sort([1,5,2,3,6,4,20,123,33,-2,12,-123])
