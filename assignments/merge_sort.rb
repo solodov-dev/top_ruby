@@ -1,27 +1,19 @@
 def merge(left, right)
   result = []
-  while !left.empty? && !right.empty? do
-    if (left[0] < right[0])
-      result << left.shift
-    else
-      result << right.shift
-    end
+  until left.empty? || right.empty? do
+    result << (left[0] < right[0] ? left.shift : right.shift)
   end
-
-  !left.empty? ? result + left : result + right
-
-  result
+  return result.concat right, left
 end
 
 def merge_sort(arr)
-  if arr.length() === 1
-    return arr
+  if arr.length === 1
+    arr
   else
-    split_point = arr.length() / 2
-    left = merge_sort(arr[0..split_point - 1])
-    right = merge_sort(arr[split_point..-1])
-    return merge(left, right);
+    left = merge_sort(arr.shift(arr.length / 2))
+    right = merge_sort(arr);
+    merge(left, right);
   end
 end
 
-p merge_sort([1,5,2,3,6,4])
+p merge_sort([1,5,2,3,6,4,20,123,33,-2,12,-123])
